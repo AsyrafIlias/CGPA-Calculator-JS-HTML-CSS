@@ -1,0 +1,34 @@
+body {
+    background-image: linear-gradient(90deg, #0bb8e3 ,#BBC2C8);
+}
+
+#subject_row {
+    font-size: 20px;
+    font-weight: bolder;
+    margin-left: 1.4%;
+}
+
+#credit_row {
+    font-size: 20px;
+    font-weight: bolder;
+    margin-left: 7%;
+}
+
+#grade_row {
+    font-size: 20px;
+    font-weight: bolder;
+    margin-left: 4%;
+}
+
+#num {
+    text-align: right;
+    font-weight: bolder;
+}
+
+.button {
+    width: 100%;
+    padding: 15px;
+    display: inline-block;
+    margin: 0 auto;
+}
+

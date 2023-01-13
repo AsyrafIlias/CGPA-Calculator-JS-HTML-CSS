@@ -1,0 +1,64 @@
+<!--Inspired from https://codepen.io/Proyce/pen/NWxYWgr-->
+<!--Thanks Prosper-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator_box">
+        <h1>University Malaya CGPA Calculator</h1>
+        
+        <div id="course_wrapper"> <!-- #1 -->
+            <form class="key-0">
+
+                <!-- Label for each input-->
+                <p> <label id="subject_row" for="subjects">Subjects:</label>
+                    <label id="credit_row" for="credit_hours">Credit Hours:</label>
+                    <label id="grade_row" for="grade">Grades:</label> 
+                </p>
+                
+                <!-- Ask user input-->
+                <p1 id="num">1.</p1>
+                <input type="text" placeholder="Enter subject" class="subjects key-0" required/>
+                <input type="number" placeholder="Enter credit hour" class="credit_hours key-0" value="" min="0" required/>
+                <select class="grade key-0" required>
+                    <option class="grade" value="select">Enter grade</option>
+                    <option class="grade" value="A+">A+</option>
+                    <option class="grade" value="A">A</option>
+                    <option class="grade" value="A-">A-</option>
+                    <option class="grade" value="B+">B+</option>
+                    <option class="grade" value="B">B</option>
+                    <option class="grade" value="B-">B-</option>
+                    <option class="grade" value="C+">C+</option>
+                    <option class="grade" value="C">C</option>
+                    <option class="grade" value="C-">C-</option>
+                    <option class="grade" value="D+">D+</option>
+                    <option class="grade" value="D">D</option>
+                    <option class="grade" value="F">F</option>
+                </select>
+            </form>
+        </div>
+
+        <div class="button"> <!-- #2 -->
+            <button onclick="addSubject()">Add Subject</button>
+            <button onclick="removeSubject()">Remove Subject</button>
+            <button onclick="calculateCGPA()">Calculate CGPA</button>
+        </div>
+
+        <div class="result"> <!-- #3 -->
+            <p> <label id="cgpa_calculate">CGPA: </label>
+                <label id="result_2">Result: </label>
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js">       
+    </script>
+</body>
+</html>
