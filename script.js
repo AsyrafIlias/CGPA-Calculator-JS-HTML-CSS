@@ -29,7 +29,7 @@ function addSubject() {
     <form class= "add_new key-${counter}">
         <p1 id="num">${counter+1}.</p1>
         <input type="text" placeholder="Enter subject" class="subjects key-${counter}" required>
-        <input type="number" placeholder="Enter credit hour" min="0" class="credit_hours key-${counter}" required>
+        <input type="number" placeholder="Enter credit hour" min="1" class="credit_hours key-${counter}" required>
         <select class="grade key-${counter}" required>
             <option class="grade" value="select">Enter grade</option>
             <option class="grade" value="A+">A+</option>
@@ -72,25 +72,26 @@ function calculateCGPA() {
     const listofCreditHours = [];
     let totalCreditHours = 0;
 
-    SELECTGRADE.forEach( // pass grade list to listofGrades array
+    // pass grade list from HTML to listofGrades array in JS
+    SELECTGRADE.forEach( // for each select
         (e) => {
-        let GRADES = e.options;
-        const selectedIndex = e.selectedIndex;
-        const selectedGrade = GRADES[selectedIndex];
-        const gradeValue = selectedGrade.text.toUpperCase();
+        let GRADES = e.options; // access all option.grade (HTMLOptionsCollection) in select which also contain selectedIndex
+        const selectedGrade = GRADES[e.selectedIndex]; //e.selectedIndex pointing to selectedIndex in GRADES
+        const gradeValue = selectedGrade.text; //change from the selected option.grade to real text
         listofGrades.push(gradeValue);
         }
     );
-    console.log(listofGrades);
+    console.log("Grade entered: " + listofGrades);
 
-    INPUTCREDITHOUR.forEach( // pass credit hours list to listofUnits array
+    // pass credit hours list from HTML to listofUnits array in JS
+    INPUTCREDITHOUR.forEach( 
         (e) => {
         const credithoursValue = parseInt(e.value);
-        totalCreditHours = totalCreditHours  + credithoursValue;
+        totalCreditHours = totalCreditHours + credithoursValue;
         listofCreditHours.push(credithoursValue);
         }
     );
-    console.log(listofCreditHours, totalCreditHours);
+    console.log("Credit hour entered: " + listofCreditHours, "- Total credit hour entered: " + totalCreditHours);
 
     let gradecredithours= 0;
     for (let i=0; i<listofCreditHours.length; i++) {
@@ -98,11 +99,11 @@ function calculateCGPA() {
     }
 
     const CGPA = gradecredithours/totalCreditHours;
-    console.log(gradecredithours, CGPA);
+    console.log("CGPA: " + CGPA.toFixed(2));
     FINALCGPA.textContent = "CGPA: " + CGPA.toFixed(2);
 
     for(let i=0; i<listofGrades.length; i++) {
-        
+
         if(listofGrades[i]=="C-" || listofGrades[i]=="D+" || listofGrades[i]=="D" || listofGrades[i]=="F") {RESULT.textContent= "Result: Fail"; break;}
         else {
             if(CGPA>= 3.70 && CGPA<= 4.00) {RESULT.textContent= "Result: Pass (Dean's Award)";}
